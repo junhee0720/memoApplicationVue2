@@ -3,6 +3,8 @@
   <div id="app">
     <!-- 등록한 컴포넌트를 Template 영역에 커스텀 엘리먼트로 추가한다. -->
     <app-header />
+    <!-- 등록된 메모앱 컴포넌트를 커스텀 엘리먼트를 이용하여 template영역에 추가 -->
+    <memo-app />
   </div>
 </template>
 
@@ -10,14 +12,16 @@
 <script>
 // 1. 우리가 필요한 컴포넌트를 가져온다.
 import AppHeader from './components/AppHeader';
+// memoapp 컴포넌트 추가
+import MemoApp from './components/MemoApp';
 
 
 export default {
   name: 'app' ,
   components : {
     // 2. 1에서 가져온 컴포넌트를 등록해준다.
-    AppHeader
-
+    AppHeader ,
+    MemoApp ,
   }
 }
 </script>
