@@ -42,16 +42,17 @@
 				// 비구조화 할당(destructuring assignment) 구문 을 이용하여 변수를 선언한다.
 				const { title, content } = this;
 				// 데이터의 고유한 식별자를 생성한다.
-				const id = new Date().getTime();
+				// const id = new Date().getTime(); 1. 임의의 id를 생성 변수를 삭제한다.
 
 				// 제목이나 내용을 입력하지 않은 경우를 대비하여 방어 코드를 추가한다.
 				const isEmpty = title.length <= 0 || content.length <= 0;
 				if(isEmpty) {
 					return false;
 				}
-
+				
 				// addMemo 이벤트를 발생시키고 payload로 사용자가 입력한 데이터를 넣어준다.
-				this.$emit('addMemo', {id, title, content});
+				// this.$emit('addMemo', {id, title, content}); 2. 부모 컴포넌트에게 전달해주는 인자에서 id를 삭제한다.
+				this.$emit('addMemo', {title, content})
 
 				// 부모 컴포넌트에 데이터를 전파한 후 데이터를 다시 원상태로 초기화한다.
 				this.resetFields();
